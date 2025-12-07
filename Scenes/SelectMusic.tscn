@@ -1,0 +1,237 @@
+[gd_scene load_steps=26 format=3 uid="uid://bb6j68qr5v55i"]
+
+[ext_resource type="Script" uid="uid://bdd6oux8idtrn" path="res://Scripts/SelectMusic.gd" id="1_fsh0r"]
+[ext_resource type="Texture2D" uid="uid://brnrroekvd02j" path="res://levels/CalamityFortune/BG.jpg" id="2_7pehn"]
+[ext_resource type="Texture2D" uid="uid://c2fdljud288qa" path="res://Textures/sm_bg.png" id="2_r10io"]
+[ext_resource type="Script" uid="uid://bpo2c02rxv51e" path="res://Scripts/StartButton.gd" id="3_2ixrl"]
+[ext_resource type="Texture2D" uid="uid://pad7pq4oskdn" path="res://Textures/sm_bg2.png" id="3_qybr4"]
+[ext_resource type="FontFile" uid="uid://cbwjjqobao8kk" path="res://Fonts/SanJiHuaChaoTi-Cu-2.ttf" id="5_ct2ij"]
+[ext_resource type="FontFile" uid="uid://c2sg8j617mlnr" path="res://Fonts/4-Square-2.otf" id="5_r5tlg"]
+[ext_resource type="Texture2D" uid="uid://c1varvd37hoby" path="res://Sprites/back_but.png" id="6_vbebj"]
+[ext_resource type="Texture2D" uid="uid://c4ueemrrpgli0" path="res://Sprites/start_but.png" id="7_vbebj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5tlg"]
+texture = ExtResource("6_vbebj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1d6wf"]
+texture = ExtResource("6_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18goi"]
+texture = ExtResource("6_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j1f7k"]
+texture = ExtResource("6_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8aqx"]
+texture = ExtResource("6_vbebj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkdcy"]
+texture = ExtResource("7_vbebj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfavj"]
+texture = ExtResource("7_vbebj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hhr72"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7qvd"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd0b6"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tddul"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vhib"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xv30o"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eppj4"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4coo"]
+texture = ExtResource("7_vbebj")
+modulate_color = Color(0, 0.42358288, 0.4366271, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jttdh"]
+texture = ExtResource("7_vbebj")
+
+[node name="SelectMusic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsh0r")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WHITE" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+modulate = Color(0.49560964, 0.71112853, 0.8277864, 0.503)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r10io")
+expand_mode = 5
+
+[node name="Background2" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qybr4")
+
+[node name="MainLayout" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftArea" type="Control" parent="MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayout/LeftArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="SongList" type="VBoxContainer" parent="MainLayout/LeftArea/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="TopSpacer" type="Control" parent="MainLayout/LeftArea/ScrollContainer/SongList"]
+layout_mode = 2
+
+[node name="BottomSpacer" type="Control" parent="MainLayout/LeftArea/ScrollContainer/SongList"]
+layout_mode = 2
+
+[node name="CenterLine" type="ColorRect" parent="MainLayout/LeftArea"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RightInfoPanel" type="Control" parent="MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VAligner" type="CenterContainer" parent="MainLayout/RightInfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoVBox" type="VBoxContainer" parent="MainLayout/RightInfoPanel/VAligner"]
+layout_mode = 2
+alignment = 1
+
+[node name="CoverBig" type="TextureRect" parent="MainLayout/RightInfoPanel/VAligner/InfoVBox"]
+clip_contents = true
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("2_7pehn")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label_Title" type="Label" parent="MainLayout/RightInfoPanel/VAligner/InfoVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r5tlg")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Artist" type="Label" parent="MainLayout/RightInfoPanel/VAligner/InfoVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r5tlg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("5_ct2ij")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_r5tlg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1d6wf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_18goi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_j1f7k")
+theme_override_styles/focus = SubResource("StyleBoxTexture_q8aqx")
+text = "返 回"
+
+[node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_ct2ij")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_dkdcy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_gfavj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hhr72")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_a7qvd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fd0b6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_tddul")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8vhib")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_xv30o")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_eppj4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_t4coo")
+theme_override_styles/focus = SubResource("StyleBoxTexture_jttdh")
+text = "开 始"
+script = ExtResource("3_2ixrl")

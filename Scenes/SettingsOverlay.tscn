@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfhmsqrnjvgc4"]
+
+[ext_resource type="FontFile" uid="uid://cbwjjqobao8kk" path="res://Fonts/SanJiHuaChaoTi-Cu-2.ttf" id="1_8gnpd"]
+[ext_resource type="Script" uid="uid://ptua2oc1ak3e" path="res://Scripts/SettingOverlay.gd" id="1_g4k1h"]
+[ext_resource type="Texture2D" uid="uid://c5nlhtu7nk6qa" path="res://Sprites/left_but.png" id="3_ghm6y"]
+[ext_resource type="FontFile" uid="uid://s315ah2h40ud" path="res://Fonts/SourceHanSansSC-Regular-2.otf" id="3_qjwmu"]
+[ext_resource type="FontFile" uid="uid://hfmu4jamgc8n" path="res://Fonts/字魂无限引力黑(商用需授权).ttf" id="4_wib0o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qj4j"]
+bg_color = Color(0.7165724, 0.49367762, 0.5058785, 0.52156866)
+corner_detail = 12
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_84q57"]
+texture = ExtResource("3_ghm6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jxeh7"]
+texture = ExtResource("3_ghm6y")
+modulate_color = Color(2.454227, 0.9063317, 1.5651988, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghm6y"]
+texture = ExtResource("3_ghm6y")
+modulate_color = Color(2.454227, 0.9063317, 1.5651988, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8nh2"]
+texture = ExtResource("3_ghm6y")
+modulate_color = Color(2.454227, 0.9063317, 1.5651988, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6uw2f"]
+texture = ExtResource("3_ghm6y")
+
+[node name="SettingsOverlay" type="Control"]
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4k1h")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5211331, 0.40965515, 0.42830563, 0.58000004)
+
+[node name="Dialog" type="Panel" parent="."]
+custom_minimum_size = Vector2(720, 480)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -426.0
+offset_right = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6qj4j")
+
+[node name="TopBar" type="Control" parent="Dialog"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 0
+offset_bottom = 48.0
+
+[node name="BackButton" type="Button" parent="Dialog/TopBar"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_8gnpd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_84q57")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jxeh7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ghm6y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_p8nh2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6uw2f")
+text = "返 回"
+
+[node name="Line2D" type="Line2D" parent="Dialog/TopBar"]
+visible = false
+points = PackedVector2Array(-37, 48, 857, 47)
+width = 1.0
+
+[node name="Content" type="VBoxContainer" parent="Dialog"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Dialog/Content"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Dialog/Content"]
+layout_mode = 2
+
+[node name="HBox_Speed" type="HBoxContainer" parent="Dialog/Content"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="Dialog/Content/HBox_Speed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qjwmu")
+theme_override_font_sizes/font_size = 32
+text = "流速"
+
+[node name="SpeedInput" type="LineEdit" parent="Dialog/Content/HBox_Speed"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "6.0"
+placeholder_text = "6.0"
+alignment = 1
+
+[node name="Label" type="Label" parent="Dialog/Content/HBox_Speed"]
+visible = false
+layout_mode = 2
+
+[node name="debug_click" type="HBoxContainer" parent="Dialog/Content"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Dialog/Content/debug_click"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.805388, 0.76487833, 1, 1)
+theme_override_fonts/font = ExtResource("4_wib0o")
+theme_override_font_sizes/font_size = 32
+text = "小猫，你可以点击"
+
+[node name="Button" type="Button" parent="Dialog/Content/debug_click"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "点我"
+
+[node name="spacer" type="Control" parent="Dialog/Content"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Credit" type="RichTextLabel" parent="Dialog/Content"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][font_size=32][b]★ Credits ★[/b][/font_size][/center]
+[font_size=18][center]
+[b]图片资源[/b]全部来源于网络  
+[b]音乐资源[/b]全部来源于网络
+
+[b]使用了以下的音乐资源：[/b]
+《你看到的我》DJ版 - 黄勇 任书怀
+Abstruse Dilemma - Ashrount vs. D-D-Dice
+Calamity Fortune - LeaF
+snooze - wotaku feat. SHIKI
+
+[b]使用了以下的谱面资源：[/b]
+Zalenitte – Abstruse Dilemma
+Usagi_ – Calamity Fortune
+mystia- – snooze
+
+[b]使用了以下的字体资源：[/b]
+4-Square-2
+SanJiHuaChaoTi-Cu-2
+SourceHanSansSC-Regular-2
+字魂无限引力黑
+
+
+★纯整活来的★
+[/center][/font_size]"
+
+[node name="Spacer2" type="Control" parent="Dialog/Content"]
+layout_mode = 2
+
+[node name="Footer" type="Control" parent="Dialog"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

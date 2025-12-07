@@ -1,0 +1,156 @@
+[gd_scene load_steps=15 format=3 uid="uid://cvxbn4v4lgiyv"]
+
+[ext_resource type="Script" uid="uid://bpo2c02rxv51e" path="res://Scripts/StartButton.gd" id="1_i26rj"]
+[ext_resource type="Script" uid="uid://dq2nml1urhnaa" path="res://Scripts/MainMenu.gd" id="1_iwfq2"]
+[ext_resource type="Script" uid="uid://bru33g31vmepw" path="res://Scripts/ExitButton.gd" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://cdnikp4ibossq" path="res://Textures/title.png" id="3_afec1"]
+[ext_resource type="Texture2D" uid="uid://htlxslkqo2l1" path="res://Textures/bridge.png" id="3_fimr5"]
+[ext_resource type="Shader" uid="uid://dnp4cnbribimr" path="res://Shaders/fade_left_edge.gdshader" id="3_u7cqb"]
+[ext_resource type="AudioStream" uid="uid://up5lmkbsuvq0" path="res://Audios/大哥の小曲  十年老兵の小曲 《你看到的我》背背背背起了行囊 DJ版—黄勇_任书怀 - 1.studio_video_1737118454529.mp4(Av113843829213285,P1).mp3" id="4_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://3230vgpd6wvl" path="res://Textures/index3.png" id="6_fimr5"]
+[ext_resource type="Script" uid="uid://ba6epjr8c1rk7" path="res://Scripts/SelectButton.gd" id="7_31qfy"]
+[ext_resource type="Texture2D" uid="uid://w3vijqfsel3f" path="res://Textures/index1.png" id="7_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://mi6d2bdskqux" path="res://Textures/index4.png" id="8_afec1"]
+[ext_resource type="Script" uid="uid://bgl2pafnqs27f" path="res://Scripts/SettingButton.gd" id="8_qie43"]
+[ext_resource type="Texture2D" uid="uid://clxbyfbmnmc1e" path="res://Textures/index2.png" id="9_31qfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afec1"]
+shader = ExtResource("3_u7cqb")
+shader_parameter/screen_width = 1000.0
+shader_parameter/fade_start_x_ratio = 0.3
+shader_parameter/fade_end_x_ratio = 0.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwfq2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.1620002
+anchor_bottom = 3.012
+offset_right = 126.52002
+offset_bottom = 120.5199
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("4_qoqlk")
+volume_db = 1.0
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_afec1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fimr5")
+expand_mode = 5
+
+[node name="Title" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_right = 256.10425
+offset_bottom = 144.0
+texture = ExtResource("3_afec1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 217.0
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="Button" type="Button" parent="ButtonPanel"]
+layout_mode = 2
+mouse_filter = 2
+button_mask = 0
+
+[node name="StartButton" type="Button" parent="ButtonPanel"]
+visible = false
+layout_mode = 2
+text = "开始游戏"
+script = ExtResource("1_i26rj")
+
+[node name="SelectButton" type="Button" parent="ButtonPanel"]
+layout_mode = 2
+text = "选择乐曲"
+script = ExtResource("7_31qfy")
+
+[node name="SettingButton" type="Button" parent="ButtonPanel"]
+layout_mode = 2
+text = "设置"
+script = ExtResource("8_qie43")
+
+[node name="ExitButton" type="Button" parent="ButtonPanel"]
+layout_mode = 2
+text = "退出"
+script = ExtResource("2_eiy7p")
+
+[node name="CharacterScaler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPivot" type="Node2D" parent="CharacterScaler"]
+
+[node name="Char3" type="TextureRect" parent="CharacterScaler/CharacterPivot"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 700.0
+offset_bottom = 800.0
+texture = ExtResource("6_fimr5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Char1" type="TextureRect" parent="CharacterScaler/CharacterPivot"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_right = 700.0
+offset_bottom = 800.0
+texture = ExtResource("7_u7cqb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Char4" type="TextureRect" parent="CharacterScaler/CharacterPivot"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_right = 700.0
+offset_bottom = 800.0
+texture = ExtResource("8_afec1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Char2" type="TextureRect" parent="CharacterScaler/CharacterPivot"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_right = 700.0
+offset_bottom = 800.0
+texture = ExtResource("9_31qfy")
+expand_mode = 1
+stretch_mode = 5

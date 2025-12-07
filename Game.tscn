@@ -1,0 +1,236 @@
+[gd_scene load_steps=14 format=3 uid="uid://cd3hmgeydnm5y"]
+
+[ext_resource type="Script" uid="uid://dv2mni8xt1kuc" path="res://Scripts/Game.gd" id="1_u44n3"]
+[ext_resource type="Script" uid="uid://d26u0fqk4vqk5" path="res://Scripts/NotePool.gd" id="1_wbfu4"]
+[ext_resource type="Texture2D" uid="uid://bjlfct41lu3mq" path="res://Textures/bridge2.jpg" id="2_2vekm"]
+[ext_resource type="PackedScene" uid="uid://dt4t0ai67jik3" path="res://Note.tscn" id="2_xkndl"]
+[ext_resource type="Texture2D" uid="uid://dvxusvheh101f" path="res://Sprites/wll4.png" id="4_r0x5m"]
+[ext_resource type="Texture2D" uid="uid://cg720sqve5um5" path="res://Sprites/arrow.png" id="5_joorw"]
+[ext_resource type="Texture2D" uid="uid://xr0qnj253pqr" path="res://Sprites/bg.png" id="5_r0x5m"]
+[ext_resource type="Texture2D" uid="uid://8ypk6pclxhrv" path="res://Sprites/acc.png" id="5_t88pq"]
+[ext_resource type="Texture2D" uid="uid://7k54dwv32tta" path="res://Sprites/tracklost.png" id="6_3mrqo"]
+[ext_resource type="Texture2D" uid="uid://bry5fs3ju072s" path="res://Sprites/cha_border.png" id="6_yhmtn"]
+[ext_resource type="Texture2D" uid="uid://brvgdah7lq1hq" path="res://Sprites/cha_bg.jpg" id="7_gwjdr"]
+[ext_resource type="FontFile" uid="uid://s315ah2h40ud" path="res://Fonts/SourceHanSansSC-Regular-2.otf" id="9_yx171"]
+[ext_resource type="FontFile" uid="uid://c2sg8j617mlnr" path="res://Fonts/4-Square-2.otf" id="12_lvtmh"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u44n3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.6745098, 0.7176471, 0.6901961, 0.7294118)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2vekm")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="NotePool" type="Node2D" parent="."]
+script = ExtResource("1_wbfu4")
+note_scene = ExtResource("2_xkndl")
+
+[node name="UI_Layer" type="CanvasLayer" parent="."]
+
+[node name="MainLayout" type="HBoxContainer" parent="UI_Layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="Control" parent="UI_Layer/MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="UI_Layer/MainLayout/LeftPanel"]
+modulate = Color(1, 1, 1, 0.25)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_gwjdr")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CharacterImage" type="TextureRect" parent="UI_Layer/MainLayout/LeftPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 586.4999
+offset_bottom = 974.4999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_r0x5m")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="UI_Layer/MainLayout/LeftPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yhmtn")
+expand_mode = 1
+
+[node name="LaneContainer" type="Control" parent="UI_Layer/MainLayout"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="UI_Layer/MainLayout/LaneContainer"]
+self_modulate = Color(0.5251013, 0.5251013, 0.5251013, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_r0x5m")
+expand_mode = 2
+
+[node name="HitLine" type="ColorRect" parent="UI_Layer/MainLayout/LaneContainer"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 556.0
+offset_right = 392.0
+offset_bottom = 563.0
+
+[node name="HitLineNode" type="Control" parent="UI_Layer/MainLayout/LaneContainer"]
+anchors_preset = 0
+offset_left = 593.0
+offset_top = 539.0
+offset_right = 633.0
+offset_bottom = 579.0
+
+[node name="TrackLostImage" type="TextureRect" parent="UI_Layer/MainLayout/LaneContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.5
+offset_top = -38.5
+offset_right = 419.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_3mrqo")
+expand_mode = 2
+
+[node name="ArrowMark" type="TextureRect" parent="UI_Layer/MainLayout/LaneContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 94.0
+offset_bottom = 91.0
+texture = ExtResource("5_joorw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI_Layer/MainLayout/LaneContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_yx171")
+theme_override_font_sizes/font_size = 36
+text = "撤离点"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Criterion" type="Label" parent="UI_Layer/MainLayout/LaneContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -20.0
+offset_right = 45.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_lvtmh")
+theme_override_font_sizes/font_size = 32
+text = "MISS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightPanel" type="Control" parent="UI_Layer/MainLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_Score" type="RichTextLabel" parent="UI_Layer/MainLayout/RightPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 38.0
+offset_right = 318.0
+offset_bottom = 138.0
+theme_override_fonts/normal_font = ExtResource("12_lvtmh")
+bbcode_enabled = true
+text = "[font_size=16][left]SCORE[/left][/font_size]
+
+[font_size=32][center]0000000[/center][/font_size]"
+scroll_active = false
+
+[node name="Label_Accuracy" type="RichTextLabel" parent="UI_Layer/MainLayout/RightPanel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 154.0
+offset_right = 317.0
+offset_bottom = 255.0
+theme_override_fonts/normal_font = ExtResource("12_lvtmh")
+bbcode_enabled = true
+text = "[font_size=16][left]ACCURACY[/left][/font_size]
+
+[font_size=32][center]00.00%[/center][/font_size]"
+scroll_active = false
+
+[node name="AccuracyMeterArea" type="TextureRect" parent="UI_Layer/MainLayout/RightPanel"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 328.0
+offset_right = 243.0
+offset_bottom = 535.0
+texture = ExtResource("5_t88pq")
+expand_mode = 1
+
+[node name="AccIndicator" type="ColorRect" parent="UI_Layer/MainLayout/RightPanel/AccuracyMeterArea"]
+layout_mode = 1
+offset_left = -35.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 12.0
+color = Color(0.34117648, 0, 0.24313726, 1)

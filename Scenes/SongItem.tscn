@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi05kqpsxsh30"]
+
+[ext_resource type="Script" uid="uid://br6unv2urqr1k" path="res://Scripts/SongItem.gd" id="1_lk43s"]
+[ext_resource type="Texture2D" uid="uid://dpywdsp66g24g" path="res://Sprites/song_item2.png" id="2_iyxc6"]
+[ext_resource type="Texture2D" uid="uid://brnrroekvd02j" path="res://levels/CalamityFortune/BG.jpg" id="3_2pr2u"]
+[ext_resource type="FontFile" uid="uid://s315ah2h40ud" path="res://Fonts/SourceHanSansSC-Regular-2.otf" id="3_iyxc6"]
+[ext_resource type="Texture2D" uid="uid://cyowdbuqelbqx" path="res://Sprites/cover_mask3.png" id="4_l5wti"]
+
+[node name="SongItem" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 150.0
+script = ExtResource("1_lk43s")
+
+[node name="Mover" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -300.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="Mover"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iyxc6")
+expand_mode = 1
+
+[node name="Content" type="HBoxContainer" parent="Mover"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconContainer" type="Control" parent="Mover/Content"]
+custom_minimum_size = Vector2(157, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mask" type="TextureRect" parent="Mover/Content/IconContainer"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_l5wti")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CoverImage" type="TextureRect" parent="Mover/Content/IconContainer/mask"]
+custom_minimum_size = Vector2(157.5, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_2pr2u")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="InfoVBox" type="VBoxContainer" parent="Mover/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label_Title" type="Label" parent="Mover/Content/InfoVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iyxc6")
+theme_override_font_sizes/font_size = 18
+text = "        Name"
+
+[node name="Label_Artist" type="Label" parent="Mover/Content/InfoVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iyxc6")
+theme_override_font_sizes/font_size = 12
+text = "      Artist"
+
+[node name="Label_Creator" type="Label" parent="Mover/Content/InfoVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iyxc6")
+theme_override_font_sizes/font_size = 12
+text = "Note Designer"

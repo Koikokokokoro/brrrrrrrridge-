@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://r46ee48gfedp"]
+
+[ext_resource type="Script" uid="uid://cgqds2bf0jogk" path="res://Scripts/SceneTransition.gd" id="1_rryme"]
+[ext_resource type="Texture2D" uid="uid://oas43e4xcrpo" path="res://Sprites/lp.png" id="2_ffvj0"]
+[ext_resource type="Texture2D" uid="uid://dok77c8i3jmxv" path="res://Sprites/rp.png" id="3_751qk"]
+
+[node name="SceneTransition" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_rryme")
+tex_left = ExtResource("2_ffvj0")
+tex_right = ExtResource("3_751qk")
+
+[node name="TransitionControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftTexture" type="TextureRect" parent="TransitionControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="RightTexture" type="TextureRect" parent="TransitionControl"]
+layout_mode = 0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TransitionControl"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

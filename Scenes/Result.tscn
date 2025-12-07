@@ -1,0 +1,196 @@
+[gd_scene load_steps=16 format=3 uid="uid://cxkv4v1qof66s"]
+
+[ext_resource type="Script" uid="uid://bj8w3qcyrrshx" path="res://Scripts/Result.gd" id="1_bhjjx"]
+[ext_resource type="Texture2D" uid="uid://d0ld2isjp67yv" path="res://Textures/bridge.jpg" id="2_krk85"]
+[ext_resource type="Shader" uid="uid://tnp5yguomg2g" path="res://Shaders/result_bg.gdshader" id="2_x2cm7"]
+[ext_resource type="Script" uid="uid://cf3ykuhoyiljc" path="res://Scripts/background_layer_shader_controller.gd" id="3_mmg1t"]
+[ext_resource type="Script" uid="uid://bw0k6lo2m8d1t" path="res://Scripts/RaysContainer.gd" id="4_qaqph"]
+[ext_resource type="FontFile" uid="uid://hfmu4jamgc8n" path="res://Fonts/字魂无限引力黑(商用需授权).ttf" id="5_7vfnu"]
+[ext_resource type="Texture2D" uid="uid://w3vijqfsel3f" path="res://Textures/index1.png" id="5_8ci8j"]
+[ext_resource type="Script" uid="uid://dqt57kylvql8x" path="res://Scripts/ResultInfo.gd" id="5_qyv8p"]
+[ext_resource type="Script" uid="uid://dw3v7ybat1toq" path="res://Scripts/rank.gd" id="7_5bns1"]
+[ext_resource type="Texture2D" uid="uid://c5nlhtu7nk6qa" path="res://Sprites/left_but.png" id="9_mfskn"]
+[ext_resource type="FontFile" uid="uid://cbwjjqobao8kk" path="res://Fonts/SanJiHuaChaoTi-Cu-2.ttf" id="9_ov3mn"]
+[ext_resource type="Texture2D" uid="uid://13hq56d8dqal" path="res://Sprites/right_but.png" id="10_cgskb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqi4k"]
+shader = ExtResource("2_x2cm7")
+shader_parameter/u_basis_x = Vector2(1, 0)
+shader_parameter/u_basis_y = Vector2(0, 1)
+shader_parameter/u_origin_px = Vector2(0, 0)
+shader_parameter/u_rect_size_px = Vector2(100, 100)
+shader_parameter/u_center_local = Vector2(0.5, 0.9)
+shader_parameter/color_orange = Color(1, 0.6, 0.2, 0.8)
+shader_parameter/color_green = Color(0.2, 0.8, 0.4, 0.8)
+shader_parameter/radius_px = 200.0
+shader_parameter/feather_px = 2.0
+shader_parameter/animation_progress = 0.0
+shader_parameter/index_output_mode = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cgskb"]
+texture = ExtResource("9_mfskn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ov3mn"]
+texture = ExtResource("10_cgskb")
+
+[node name="Result" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhjjx")
+
+[node name="bg" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_krk85")
+
+[node name="CharacterArt" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -323.0
+offset_right = 1348.0
+offset_bottom = 2041.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_8ci8j")
+
+[node name="BackgroundLayer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sqi4k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_mmg1t")
+
+[node name="RaysContainer" type="Node2D" parent="."]
+script = ExtResource("4_qaqph")
+
+[node name="Ray1" type="Line2D" parent="RaysContainer"]
+
+[node name="Ray2" type="Line2D" parent="RaysContainer"]
+
+[node name="Ray3" type="Line2D" parent="RaysContainer"]
+
+[node name="Ray4" type="Line2D" parent="RaysContainer"]
+
+[node name="Ray5" type="Line2D" parent="RaysContainer"]
+
+[node name="Ray6" type="Line2D" parent="RaysContainer"]
+
+[node name="CenterPoint" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RankImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -128.0
+offset_top = -60.0
+script = ExtResource("7_5bns1")
+
+[node name="InfoContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_qyv8p")
+
+[node name="ScoreLabel" type="Label" parent="InfoContainer"]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 274.0
+offset_right = 922.0
+offset_bottom = 351.0
+theme_override_fonts/font = ExtResource("5_7vfnu")
+theme_override_font_sizes/font_size = 64
+text = "分数"
+
+[node name="AccuracyLabel" type="Label" parent="InfoContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 83.0
+offset_top = 224.0
+offset_right = 275.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7vfnu")
+theme_override_font_sizes/font_size = 64
+text = "精准度"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoteLabel" type="RichTextLabel" parent="InfoContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 1.0
+theme_override_fonts/normal_font = ExtResource("5_7vfnu")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "perfect
+great"
+scroll_active = false
+
+[node name="ComboLabel" type="Label" parent="InfoContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_7vfnu")
+theme_override_font_sizes/font_size = 32
+
+[node name="RetryButton" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 571.0
+offset_right = 238.0
+offset_bottom = 631.0
+theme_override_fonts/font = ExtResource("9_ov3mn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_cgskb")
+text = "重 试"
+
+[node name="ExitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 0
+offset_left = 912.0
+offset_top = 575.0
+offset_right = 1152.0
+offset_bottom = 635.0
+theme_override_fonts/font = ExtResource("9_ov3mn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_ov3mn")
+text = "返 回"

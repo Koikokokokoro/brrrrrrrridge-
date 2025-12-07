@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://up5lmkbsuvq0"
+path="res://.godot/imported/大哥の小曲  十年老兵の小曲 《你看到的我》背背背背起了行囊 DJ版—黄勇_任书怀 - 1.studio_video_1737118454529.mp4(Av113843829213285,P1).mp3-10d515e0bebf69f12f1d65e9961c9b89.mp3str"
+
+[deps]
+
+source_file="res://Audios/大哥の小曲  十年老兵の小曲 《你看到的我》背背背背起了行囊 DJ版—黄勇_任书怀 - 1.studio_video_1737118454529.mp4(Av113843829213285,P1).mp3"
+dest_files=["res://.godot/imported/大哥の小曲  十年老兵の小曲 《你看到的我》背背背背起了行囊 DJ版—黄勇_任书怀 - 1.studio_video_1737118454529.mp4(Av113843829213285,P1).mp3-10d515e0bebf69f12f1d65e9961c9b89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

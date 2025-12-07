@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt4t0ai67jik3"]
+
+[ext_resource type="Script" uid="uid://bt5cb5ed4r4pl" path="res://Scripts/Note.gd" id="1_m01oh"]
+
+[node name="Note2D" type="Node2D"]
+script = ExtResource("1_m01oh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="DebugVisual" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
